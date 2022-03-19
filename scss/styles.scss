@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+$coloruno: black;
+$colordos: gray;
+$colortres: #f3139d;
+$colorcuatro: #2a28b1;
+$colorcinco: white;
+$colorseis: #41ad67;
+
+$size-tittle:(
+  size-h1: 35px,
+  size-h2: 32.5px,
+  size-h3: 30px,
+  size-h4: 25px 
+);
+
+$size-1: map-get($size-tittle , size-h1);
+$size-4: map-get($size-tittle, size-h4 );
+
+@mixin type-text {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: uppercase;
+    font-weight: bold; 
+  }
+
+ 
+  @mixin type-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 25px 0;
+  }  
+
+
+  @mixin type-paragraph {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+
+  @mixin type-tittle-2 {
+    font-size: $size-4;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  @mixin type-img {
+    margin: 10px;
+    border-radius: 15px
+  }
+
+.titulo {
+    @include type-text;
+    text-align: center;
+    font-size: $size-1;
+    color: $colorcuatro;
+    padding: 10px 0;  
+}
+
+.titulo2{
+    text-align: center;
+    padding: 5px;
+    background-color: $colorseis;
+
+    p {
+        color: $colorcinco;
+        font-size: 20px;
+    }
+}
+
+.navegacion {
+    background-color: $colorcuatro;
+
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        text-decoration: none;
+
+        a {
+            @include type-text;
+            color: $colorcinco;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    
+    }  
+}
+
+.banner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-img {
+    background-image: url(../img/banner1.jpg);
+    background-size: cover;
+    height: 450px;
+    position: relative;
+
+    p {
+        @include type-text;
+        position: absolute;
+        top: 20%;
+        right: 30%;
+        font-size: 60px;
+        color: $colorseis;       
+    }
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.tarjeta-h {
+    @include type-card;
+    border: 2.1px solid $colorcuatro;
+    
+
+    img {
+        @include type-img;
+    }
+
+    h4 {
+        @include type-tittle-2;
+        color: $colordos;    
+      
+    }
+
+    p {
+
+        @include type-paragraph;
+        color: $coloruno;
+    }
+
+}
+
+.tarjeta-m {
+    @include type-card;
+    border: 2.1px solid $colortres;
+    
+
+    img {
+        @include type-img;
+    }
+
+    h4 {
+        @include type-tittle-2;
+        color: $colortres;
+    }
+
+    p {
+        @include type-paragraph;    
+    }
+
+}
